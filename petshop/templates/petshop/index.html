@@ -1,0 +1,407 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetShop Pro - Cuidado e Carinho</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <style>
+      /* ✅ DEFINIÇÃO DA PALETA AMORIPET */
+      :root {
+        --roxo-amoripet: #482d7d;
+        --laranja-amoripet: #f39200;
+        --branco-fundo: #f8f9fa;
+      }
+
+      /* ✅ HERO: Adicionei uma borda laranja embaixo para dar o charme da marca */
+      .hero {
+        background: var(--branco-fundo);
+        padding: 100px 0;
+        border-bottom-left-radius: 50% 20%;
+        border-bottom-right-radius: 50% 20%;
+        border-bottom: 6px solid var(--laranja-amoripet);
+      }
+
+      /* ✅ BOTÕES E TEXTOS: Troquei o azul padrão pelo Roxo Amoripet */
+      .btn-primary {
+        background-color: var(--roxo-amoripet) !important;
+        border-color: var(--roxo-amoripet) !important;
+      }
+      .btn-primary:hover {
+        background-color: #36215d !important;
+      }
+
+      .text-primary {
+        color: var(--roxo-amoripet) !important;
+      }
+
+      .btn-whatsapp {
+        background-color: #25d366;
+        color: white;
+        border-radius: 50px;
+        padding: 10px 25px;
+      }
+
+      /* ✅ CARDS DE SERVIÇO: Ícones agora são Roxos */
+      .card-servico {
+        border: none;
+        transition: transform 0.3s;
+      }
+      .card-servico:hover {
+        transform: translateY(-10px);
+      }
+      .card-servico i {
+        color: var(--roxo-amoripet) !important;
+      }
+
+      .btn-whatsapp-flutuante {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-decoration: none;
+        transition: transform 0.3s;
+      }
+      .btn-whatsapp-flutuante:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+
+      .card-produto {
+        position: relative;
+      }
+
+      /* ✅ SELO DE OFERTA: Agora usa o Laranja oficial do logo */
+      .selo-oferta {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--laranja-amoripet);
+        color: #fff; /* Texto branco no laranja fica mais nítido */
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        border-radius: 5px;
+        z-index: 5;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-zoom {
+        transition: transform 0.4s ease;
+      }
+      .hover-zoom:hover {
+        transform: scale(1.08);
+        cursor: pointer;
+      }
+      .ratio-1x1 {
+        overflow: hidden;
+      }
+
+      .btn-roxo-amoripet {
+        background-color: var(--roxo-amoripet) !important;
+        border: none;
+        color: white;
+    }
+    /* [ESTILO] Cores para ícones e bordas da seção */
+    .contato-info i {
+        color: var(--laranja-amoripet);
+        font-size: 1.5rem;
+        margin-right: 15px;
+    }
+    .mapa-container {
+        border: 5px solid white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    </style>
+  </head>
+  <body>
+    <a
+      href="https://wa.me/+554830505686?text=Olá! Gostaria de agendar um serviço."
+      class="btn-whatsapp-flutuante"
+      target="_blank"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <nav class="navbar navbar-dark sticky-top shadow-sm py-1" style="background-color: var(--roxo-amoripet);">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+                
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo" 
+                    style="height: 45px; width: auto; object-fit: contain;" 
+                    class="me-3">
+                
+                <span class="d-none d-sm-inline ms-2">AMORIPET PetShop e Agropecuária</span>
+            </a>
+
+            <a href="https://wa.me/554830505686" class="btn btn-warning btn-sm rounded-pill fw-bold px-4" 
+            style="background-color: var(--laranja-amoripet); border: none; color: white; font-size:0.8rem;">
+            <i class="bi bi-whatsapp"></i> Contato
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero shadow-sm py-5" style="background-color: #ffffff; overflow: hidden;">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-3" style="color: var(--roxo-amoripet); line-height: 1.2;">
+                        O paraíso do seu <br>
+                        <span style="color: var(--laranja-amoripet);">melhor amigo.</span>
+                    </h1>
+                    <p class="lead mb-4 text-secondary">Banho, tosa e agropecuária com quem entende de amor animal em Florianópolis.</p>
+                    
+                    <div class="d-grid d-sm-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="#servicos" class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm" style="background-color: var(--roxo-amoripet); border: none;">
+                            Ver Serviços
+                        </a>
+                        <a href="https://wa.me/554830505686" class="btn btn-success btn-lg rounded-pill px-4 shadow-sm">
+                            <i class="bi bi-whatsapp"></i> Agendar Agora
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="position-relative p-2">
+                        <div class="position-absolute translate-middle start-50 top-50 w-100 h-100 bg-warning opacity-10 rounded-4" style="transform: rotate(-2deg); z-index: 0; scale: 1.05;"></div>
+                        
+                        <img src="{% static 'img/fachada.jpg' %}" 
+                            alt="Fachada Amoripet" 
+                            class="img-fluid rounded-4 shadow-lg position-relative" 
+                            style="z-index: 1; border: 6px solid white; max-height: 450px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Nossos Serviços</h2>
+        <div class="row g-4">
+          {% for servico in servicos %}
+          <div class="col-md-4">
+            <div class="card card-servico shadow-sm text-center p-4 h-100">
+              <i class="bi {{ servico.icone }} display-4 text-primary mb-3"></i>
+              <h3>{{ servico.titulo }}</h3>
+              <p>{{ servico.descricao }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 fst-italic">🛒 Destaques da Loja</h2>
+        <div class="row g-4">
+            {% for produto in produtos %}
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm text-center card-produto position-relative">
+                    
+                    {% if produto.preco_promocional %}
+                    <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2 rounded-pill px-3">
+                        🔥 OFERTA
+                    </span>
+                    {% endif %}
+
+                    <div class="p-1" style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                {% if produto.imagem %}
+                                <img src="{{ produto.imagem.url }}" 
+                                    class="img-fluid" 
+                                    alt="{{ produto.nome }}" 
+                                    style="max-height: 100%; width: auto; object-fit: contain;"> {% else %}
+                                <img src="https://via.placeholder.com/250" class="img-fluid" alt="Sem foto">
+                                {% endif %}
+                    </div>
+
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted">{{ produto.categoria.nome }}</small>
+                        <h6 class="card-title fw-bold">{{ produto.nome }}</h6>
+                        
+                        <div class="mt-auto mb-3">
+                            {% if produto.preco_promocional %}
+                            <span class="text-muted text-decoration-line-through small">R$ {{ produto.preco }}</span><br>
+                            <span class="text-primary fw-bold fs-5">R$ {{ produto.preco_promocional }}</span>
+                            {% else %}
+                            <span class="text-primary fw-bold fs-5">R$ {{ produto.preco }}</span>
+                            {% endif %}
+                        </div>
+
+                        <a href="https://wa.me/+554830505686?text=Olá! Tenho interesse no produto: *{{ produto.nome }}*"
+                        class="btn btn-success btn-sm w-100 rounded-pill" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Comprar
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+            <i class="bi bi-box-seam display-1 text-muted opacity-25"></i>
+            <p class="mt-3 text-muted fs-5">Estamos preparando novidades! <br> 
+            Em breve, nossa loja online estará recheada de ofertas.</p>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center mb-5">❤️ Clientes Felizes</h2>
+        <div class="row g-4">
+          {% for depoimento in depoimentos %}
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center">
+              {% if depoimento.foto_pet %}
+              <img
+                src="{{ depoimento.foto_pet.url }}"
+                class="rounded-circle mx-auto mb-3"
+                style="
+                  width: 80px;
+                  height: 80px;
+                  object-fit: cover;
+                  border: 3px solid #0d6efd;
+                "
+              />
+              {% endif %}
+              <p class="fst-italic text-muted">"{{ depoimento.texto }}"</p>
+              <h6 class="fw-bold mb-0">{{ depoimento.nome_dono }}</h6>
+              <small class="text-primary"
+                >Dono(a) do {{ depoimento.nome_pet }}</small
+              >
+            </div>
+          </div>
+          {% empty %}
+          <p class="text-center text-muted">
+            Seu pet pode ser o próximo a brilhar aqui!
+          </p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">📸 Nosso Dia a Dia</h2>
+        <div class="row g-3">
+          {% for foto in fotos_galeria %}
+          <div class="col-6 col-md-4">
+            <div class="ratio ratio-1x1 shadow-sm overflow-hidden rounded">
+              <img
+                src="{{ foto.imagem.url }}"
+                class="img-fluid object-fit-cover hover-zoom"
+                alt="{{ foto.titulo }}"
+                style="transition: transform 0.4s"
+              />
+            </div>
+          </div>
+          {% empty %}
+          <p class="text-center text-muted">
+            Aguardando os primeiros modelos pet!
+          </p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center my-5 text-primary opacity-50">
+      <hr class="d-inline-block w-25 align-middle" />
+      <span class="mx-3 fs-4">🐾</span>
+      <hr class="d-inline-block w-25 align-middle" />
+    </div>
+
+    <section id="onde-estamos" class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-md-5 mb-4 mb-md-0">
+                <h2 class="fw-bold mb-4" style="color: var(--roxo-amoripet);">Onde Estamos</h2>
+                
+                <div class="contato-info">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <p class="mb-0"><strong>Endereço:</strong><br>
+                        Rua Joaquim Fernandes de Oliveira, 16 - Bairro Abraão<br>Florianópolis - SC</p>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-clock-fill"></i>
+                        <p class="mb-0"><strong>Horário de Funcionamento:</strong><br>
+                        Segunda a Sexta: 08:00 às 18:30<br>
+                        Sábado: 08:00 às 13:00</p>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-whatsapp"></i>
+                        <p class="mb-0"><strong>WhatsApp:</strong><br>
+                        (48) 3050-5686</p>
+                    </div>
+
+                    <a href="https://www.google.com/maps/place/AMORIPET+Pet+shop+e+agropecu%C3%A1ria/@-27.606668,-48.5957114,17z/data=!3m1!4b1!4m6!3m5!1s0x952737a9c0385971:0xb6b795eca382d6e1!8m2!3d-27.606668!4d-48.5931365!16s%2Fg%2F11z0h02bx9?entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary rounded-pill px-4">
+                        Como Chegar 🚗
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="mapa-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.576130107984!2d-48.5931365!3d-27.606668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952737a9c0385971%3A0xb6b795eca382d6e1!2sAMORIPET%20Pet%20shop%20e%20agropecu%C3%A1ria!5e0!3m2!1spt-BR!2sbr!4v1773269370448!5m2!1spt-BR!2sbr" 
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <footer class="py-5 text-white" style="background-color: var(--roxo-amoripet); border-top: 4px solid var(--laranja-amoripet);">
+    <div class="container text-center">
+        <div class="mb-4">
+            <img src="{% static 'img/logo.jpg' %}" alt="Logo Amoripet" 
+                 style="height: 80px; width: auto; filter: brightness(1.2);"> <p class="mt-3 mb-0 fw-bold">Amoripet PetShop e Agropecuária</p>
+            <p class="small opacity-75">Tradição em cuidar bem.</p>
+        </div>
+
+        <div class="mb-4">
+            <a href="#" class="text-white mx-3 fs-4"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white mx-3 fs-4"><i class="bi bi-facebook"></i></a>
+        </div>
+
+        <hr class="opacity-25 my-4">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small opacity-75">
+            <p class="mb-2 mb-md-0">© 2026 Todos os direitos reservados.</p>
+            <p class="mb-0">Desenvolvido 💻 por <strong>Sutter Dorneles</strong></p>
+        </div>
+    </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
