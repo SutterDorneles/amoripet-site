@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AmoriPet — Tradição em cuidar bem</title>
     <meta name="description" content="AmoriPet PetShop e Agropecuária em Florianópolis. Banho, tosa, rações e muito carinho para o seu pet." />
+    <meta name="theme-color" content="#482d7d" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" sizes="any" />
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" sizes="48x48" />
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-32.png' %}" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}" />
+
+    <!-- Preview WhatsApp / redes -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AmoriPet" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="AmoriPet — Tradição em cuidar bem" />
+    <meta property="og:description" content="PetShop e Agropecuária em Florianópolis. Banho, tosa, produtos e muito carinho para o seu melhor amigo." />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-cover.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AmoriPet PetShop e Agropecuária" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AmoriPet — Tradição em cuidar bem" />
+    <meta name="twitter:description" content="PetShop e Agropecuária em Florianópolis. Banho, tosa e produtos com carinho." />
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-cover.jpg' %}" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
