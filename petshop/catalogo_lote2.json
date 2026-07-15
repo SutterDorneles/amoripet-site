@@ -178,5 +178,14 @@
     "categoria": "acessorios",
     "preco": "41.90",
     "imagem": "mytex-galinha.jpg"
+  },
+  {
+    "key": "bom-amigo-happynip-ratinho",
+    "arquivo": "WhatsApp Image 2026-07-14 at 14.39.47.jpeg",
+    "nome": "Bom Amigo Happynip Ratinho — Brinquedo com Catnip",
+    "descricao": "Brinquedo para gatos em formato de ratinho com catnip e pena.",
+    "categoria": "acessorios",
+    "preco": "12.90",
+    "imagem": "bom-amigo-happynip-ratinho.jpg"
   }
 ]
