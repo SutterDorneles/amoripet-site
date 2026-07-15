@@ -5,7 +5,6 @@ from pathlib import Path
 
 from django.core.files import File
 from django.core.management.base import BaseCommand
-from django.utils.text import slugify
 
 from petshop.models import Categoria, Produto
 
@@ -15,6 +14,11 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
+            "--arquivo",
+            default="",
+            help="JSON específico (ex: catalogo_lote2.json). Sem isso, importa todos catalogo_lote*.json",
+        )
+        parser.add_argument(
             "--limpar-placeholders",
             action="store_true",
             help="Remove produtos antigos sem imagem real do lote",
@@ -22,14 +26,26 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         base_dir = Path(__file__).resolve().parents[3]
-        json_path = base_dir / "petshop" / "catalogo_lote1.json"
         imagens_dir = base_dir / "produtos_prontos"
+        petshop_dir = base_dir / "petshop"
 
-        if not json_path.exists():
-            self.stderr.write(self.style.ERROR(f"Arquivo não encontrado: {json_path}"))
+        if options["arquivo"]:
+            json_paths = [petshop_dir / options["arquivo"]]
+        else:
+            json_paths = sorted(petshop_dir.glob("catalogo_lote*.json"))
+
+        if not json_paths:
+            self.stderr.write(self.style.ERROR("Nenhum catalogo_lote*.json encontrado"))
             return
 
-        catalog = json.loads(json_path.read_text(encoding="utf-8"))
+        catalog = []
+        for json_path in json_paths:
+            if not json_path.exists():
+                self.stderr.write(self.style.ERROR(f"Arquivo não encontrado: {json_path}"))
+                return
+            lote = json.loads(json_path.read_text(encoding="utf-8"))
+            catalog.extend(lote)
+            self.stdout.write(f"Lote: {json_path.name} ({len(lote)} itens)")
 
         nomes_mapa = {
             "farmacia": "Farmácia",
@@ -46,7 +62,6 @@ class Command(BaseCommand):
                 nome_arquivo = Path(produto.imagem.name).stem if produto.imagem else ""
                 if nome_arquivo in keys:
                     continue
-                # mantém só itens do lote novo; remove placeholders
                 produto.delete()
                 removidos += 1
             self.stdout.write(self.style.WARNING(f"Placeholders removidos: {removidos}"))
@@ -87,8 +102,7 @@ class Command(BaseCommand):
 
             imagem_src = imagens_dir / item["imagem"]
             if imagem_src.exists():
-                destino_rel = f"produtos/{item['imagem']}"
-                destino_abs = base_dir / "media" / destino_rel
+                destino_abs = base_dir / "media" / "produtos" / item["imagem"]
                 destino_abs.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(imagem_src, destino_abs)
                 with open(destino_abs, "rb") as fh:
@@ -104,6 +118,6 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Pronto: {criados} criados, {atualizados} atualizados. Total no lote: {len(catalog)}"
+                f"Pronto: {criados} criados, {atualizados} atualizados. Total no(s) lote(s): {len(catalog)}"
             )
         )
