@@ -1,0 +1,38 @@
+[
+  {
+    "key": "premier-nattu-adultos-pequeno-101kg",
+    "arquivo": "WhatsApp Image 2026-07-29 at 15.23.56.jpeg",
+    "nome": "PremieR Nattu Adultos Porte Pequeno 10,1kg",
+    "descricao": "Ração Super Premium com Super Foods: frango, abóbora, brócolis, quinoa e blueberry. Para cães adultos a partir de 12 meses, porte pequeno.",
+    "categoria": "racoes",
+    "preco": "288.65",
+    "imagem": "premier-nattu-adultos-pequeno-101kg.jpg"
+  },
+  {
+    "key": "golden-formula-adultos-pequeno-15kg",
+    "arquivo": "WhatsApp Image 2026-07-29 at 15.23.56 (1).jpeg",
+    "nome": "GoldeN Formula Adultos Porte Pequeno 15kg",
+    "descricao": "Ração sabor carne, arroz e vegetais para cães adultos de porte pequeno. Mini Bit, saúde oral, intestino saudável e pelagem sedosa.",
+    "categoria": "racoes",
+    "preco": "183.90",
+    "imagem": "golden-formula-adultos-pequeno-15kg.jpg"
+  },
+  {
+    "key": "royal-canin-exigent-15kg",
+    "arquivo": "WhatsApp Image 2026-07-29 at 15.23.57.jpeg",
+    "nome": "Royal Canin Exigent Gatos Adultos 1,5kg",
+    "descricao": "Ração para gatos adultos com apetite muito exigente. Dupla sensação de sabor, peso ideal, sem corantes e aromatizantes artificiais.",
+    "categoria": "racoes",
+    "preco": "131.90",
+    "imagem": "royal-canin-exigent-15kg.jpg"
+  },
+  {
+    "key": "royal-canin-castrados-15kg",
+    "arquivo": "WhatsApp Image 2026-07-29 at 15.23.57 (1).jpeg",
+    "nome": "Royal Canin Castrados Sterilised 1,5kg",
+    "descricao": "Ração para gatos adultos castrados. Controle de peso, alto teor de proteínas, sem corantes e aromatizantes artificiais.",
+    "categoria": "racoes",
+    "preco": "131.90",
+    "imagem": "royal-canin-castrados-15kg.jpg"
+  }
+]
